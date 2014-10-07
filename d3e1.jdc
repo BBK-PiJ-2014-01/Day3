@@ -1,0 +1,37 @@
+// Calculator
+
+double result = 0;
+boolean valid = true;
+println("Please enter the first number: ");
+String str1=System.console().readLine();
+double number1 = Double.parseDouble(str1);
+println("Please enter the second number: ");
+String str2=System.console().readLine();
+double number2 = Double.parseDouble(str2);
+println("Please choose the operator:");
+println("     +");
+println("     -");
+println("     *");
+println("     /");
+println("");
+String str3=System.console().readLine();
+switch(str3) {
+case "+":
+	result = number1 + number2;
+	break;
+case "-":
+	result = number1 - number2;
+	break;
+case "*":
+	result = number1 * number2;
+	break;
+case "/":
+	result = number1 / number2;
+	break;
+default:
+	println("Not a valid operator!");
+	valid = false;
+	break;
+}
+if (valid)
+	println(number1 + " " + str3 + " " + number2 + " = " + result);

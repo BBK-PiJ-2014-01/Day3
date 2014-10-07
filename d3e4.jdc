@@ -1,0 +1,26 @@
+// Line to column
+// Problem in IF statement - Does not recognise the space!
+
+String word = "";
+char c = ' ';
+
+println("Please enter some text: ");
+String str=System.console().readLine();
+
+// Prints each letter on a different line
+
+for (int i=0;i<str.length();i++)
+	println(str.substring(i,i+1));
+
+// Prints each word on a different line
+
+for (int j=0;j<str.length();j++) {
+	c = str.charAt(j);	
+	if (c != ' ')
+		word = word + c;
+	else {
+		println(word);
+		word="";
+	}
+}
+println(word);

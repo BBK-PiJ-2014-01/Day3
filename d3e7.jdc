@@ -1,0 +1,30 @@
+// Counting letter redux
+
+int count = 0;
+char c = ' ';
+boolean finished = false;
+String memory = "";
+
+println("Please enter some text: ");
+String str=System.console().readLine();
+
+while(!finished) {
+	count = 0;
+	print("Which letter would you like to count now? ");
+	String letter=System.console().readLine();
+	c=letter.charAt(0);
+
+	for (int i=0;i<str.length();i++)
+		if (str.charAt(i) == c)
+			count++;
+	for (int j=0;j<memory.length();j++)
+		if (memory.charAt(j) == c) {
+			finished = true;
+			println("Repeated character. Exiting the program...");
+			println("Thank you for your cooperation. Good bye!");
+		}
+	if (!finished) {
+		println("There are " + count + " in your text");
+		memory = memory + c;
+	}
+}

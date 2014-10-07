@@ -1,0 +1,20 @@
+// Palindrome
+
+String output = "";
+boolean palindrome = true;
+
+println("Please enter some text: ");
+String str1=System.console().readLine();
+
+for (int i=str1.length()-1;i>=0;i--)
+	output = output + str1.substring(i,i+1);
+	
+for (int j=0;j<str1.length();j++) {
+	if (str1.charAt(j) != output.charAt(j))
+		palindrome = false;
+}
+
+if (palindrome)
+	println("This is a strict palindrome!");
+else
+	println("This is not a palindrome");

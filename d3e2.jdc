@@ -1,0 +1,36 @@
+int operatorPosition = 0;
+double result = 0;
+boolean found = false;
+
+print("Please enter a mathematical operation: ");
+String str = System.console().readLine();
+
+while(!found) {
+	for (int i=0; i<str.length(); i++)
+		if ((str.charAt(i) == '+')||(str.charAt(i) == '-')||(str.charAt(i) == '*')||(str.charAt(i) == '/')) {
+			operatorPosition = i;
+			found = true;
+		}
+}
+
+double operand1 = Double.parseDouble(str.substring(0,operatorPosition));
+double operand2 = Double.parseDouble(str.substring(operatorPosition+1));
+
+switch(str.charAt(operatorPosition)) {
+case '+':
+	result = operand1 + operand2;
+	break;
+case '-':
+	result = operand1 - operand2;
+	break;
+case '*':
+	result = operand1 * operand2;
+	break;
+case '/':
+	result = operand1 / operand2;
+	break;
+default:
+	break;
+}
+
+println(operand1 + " " + str.charAt(operatorPosition) + " " + operand2 + "= " + result);

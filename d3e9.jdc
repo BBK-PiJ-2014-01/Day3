@@ -1,0 +1,13 @@
+// Palindrome creator
+
+String output = "";
+
+println("Please enter some text: ");
+String str1=System.console().readLine();
+
+for (int i=0;i<str1.length();i++)
+	print(str1.substring(i,i+1));
+
+for (int i=str1.length()-1;i>=0;i--)
+	print(str1.substring(i,i+1));
+

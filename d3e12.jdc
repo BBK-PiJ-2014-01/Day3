@@ -1,0 +1,16 @@
+// Distance Point-To-Point
+
+class Point {
+	double x;
+	double y;
+}
+
+Point 1;
+Point 2;
+Point 3;
+
+for (i=1;i<4;i++) {
+	println("Please enter the coordinate x for Point "+i);
+	String str = System.console().readLine();
+	x = Double.parseDouble(str);
+}	
