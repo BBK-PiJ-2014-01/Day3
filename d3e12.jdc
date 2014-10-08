@@ -1,16 +1,52 @@
 // Distance Point-To-Point
 
+
+String str = "";
+Point a = new Point();
+Point b = new Point();
+Point c = new Point();
+double distanceAB = 0;
+double distanceBC = 0;
+double distanceAC = 0;
+
+println("Please enter the coordinate x for Point 1: ");
+str = System.console().readLine();
+a.x = Double.parseDouble(str);
+println("Please enter the coordinate y for Point 1: ");
+str = System.console().readLine();
+a.y = Double.parseDouble(str);
+println("Please enter the coordinate x for Point 2: ");
+str = System.console().readLine();
+b.x = Double.parseDouble(str);
+println("Please enter the coordinate y for Point 2: ");
+str = System.console().readLine();
+b.y = Double.parseDouble(str);
+println("Please enter the coordinate x for Point 3: ");
+str = System.console().readLine();
+c.x = Double.parseDouble(str);
+println("Please enter the coordinate y for Point 3: ");
+str = System.console().readLine();
+c.y = Double.parseDouble(str);
+
+distanceAB = Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));
+distanceBC = Math.sqrt(Math.pow(b.x-c.x,2)+Math.pow(b.y-c.y,2));
+distanceAC = Math.sqrt(Math.pow(a.x-c.x,2)+Math.pow(a.y-c.y,2));
+
+println(distanceAB + " " + distanceBC + " " + distanceAC);
+
+if (distanceAB < distanceBC) {
+	if (distanceAC < distanceAB)
+		println("Points A & C are closest with a distance of " + distanceAC);
+	else
+		println("Points A & B are closest with a distance of " + distanceAB);
+} else {
+	if (distanceAC < distanceBC)
+		println("Points A & C are closest with a distance of " + distanceAC);
+	else
+		println("Points B & C are closest with a distance of " + distanceBC);
+}		
+
 class Point {
 	double x;
 	double y;
-}
-
-Point 1;
-Point 2;
-Point 3;
-
-for (i=1;i<4;i++) {
-	println("Please enter the coordinate x for Point "+i);
-	String str = System.console().readLine();
-	x = Double.parseDouble(str);
 }	
