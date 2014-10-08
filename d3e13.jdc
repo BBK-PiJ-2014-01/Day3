@@ -1,0 +1,41 @@
+// Rectangle
+
+
+String str = "";
+
+Rectangle rectangle = new Rectangle();
+
+double perimeter = 0;
+double area = 0;
+
+
+println("Please enter the coordinate x for Point 1: ");
+str = System.console().readLine();
+rectangle.upLeft.x = Double.parseDouble(str);
+println("Please enter the coordinate y for Point 1: ");
+str = System.console().readLine();
+rectangle.upLeft.y = Double.parseDouble(str);
+println("Please enter the coordinate x for Point 2: ");
+str = System.console().readLine();
+rectangle.downRight.x = Double.parseDouble(str);
+println("Please enter the coordinate y for Point 2: ");
+str = System.console().readLine();
+rectangle.downRight.y = Double.parseDouble(str);
+
+
+perimeter = 2 * (Math.abs(rectangle.upLeft.x-rectangle.downRight.x) + Math.abs(rectangle.upLeft.y-rectangle.downRight.y));
+area = Math.abs(rectangle.upLeft.x-rectangle.downRight.x) * Math.abs(rectangle.upLeft.y-rectangle.downRight.y);
+
+
+println("perimeter = " + perimeter);
+println("area = " + area);	
+
+class Point {
+	double x;
+	double y;
+}
+
+class Rectangle {
+	Point upLeft;
+	Point downRight;
+}	
