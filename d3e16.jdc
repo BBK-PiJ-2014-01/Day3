@@ -1,0 +1,95 @@
+boolean finished = false;
+String str = "";
+String command = "";
+String emailFrom = "";
+String emailTo = "";
+String commandMF = "MAIL FROM: ";
+String commandRF = "RCPT FROM: ";
+String commandDT = "DATA";
+boolean error = false;
+int counter = 0;
+int i=0;
+
+println("Welcome to My Mail Server!");
+while(!finished) {
+	do {
+		counter = 0;
+		error = false;
+		print(">>> ");
+		str = System.console().readLine();
+		command = str.substring(0,11);
+		emailFrom = str.substring(11);
+	
+		i=0;
+		do {
+			if (command.charAt(i) != commandMF.charAt(i))
+				error = true;
+			if (error)
+				println("Invalid command");
+			i++;
+		} while ((i<command.length())&&(error==false));
+	
+		i=0;
+		while ((i<emailFrom.length())&&(error==false)) {
+			if (emailFrom.charAt(i) == '@')
+				if ((i==0) || (i==emailFrom.length()-1))
+					error = true;
+				else
+					counter++;
+			if ((counter > 1) || ((i==emailFrom.length()-1)&&(counter==0)))
+				error = true;
+			if (error)
+				println("Not a valid email address");
+			i++;
+		} 
+	} while(error);
+	println("OK");
+	do {
+		counter = 0;
+		error = false;
+		print(">>> ");
+		str = System.console().readLine();
+		command = str.substring(0,11);
+		emailTo = str.substring(11);
+	
+		i=0;
+		do {
+			if (command.charAt(i) != commandRF.charAt(i))
+				error = true;
+			if (error)
+				println("Invalid command");
+			i++;
+		} while ((i<command.length())&&(error==false));
+	
+		i=0;
+		while ((i<emailTo.length())&&(error==false)) {
+			if (emailTo.charAt(i) == '@')
+				if ((i==0) || (i==emailTo.length()-1))
+					error = true;
+				else
+					counter++;
+			if ((counter > 1) || ((i==emailTo.length()-1)&&(counter==0)))
+				error = true;
+			if (error)
+				println("Not a valid email address");
+			i++;
+		} 
+	} while(error);
+	println("OK");
+	do {
+		error = false;
+		print(">>> ");
+		str = System.console().readLine();
+		i=0;
+		do {
+			if (str.charAt(i) != commandDT.charAt(i))
+				error = true;
+			if (error)
+				println("Invalid command");
+			i++;
+		} while ((i<str.length())&&(error==false));
+	} while(error);
+	
+	finished=true;
+
+}
