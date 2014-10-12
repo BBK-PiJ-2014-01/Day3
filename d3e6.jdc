@@ -1,0 +1,22 @@
+String str = "";
+String text = "";
+String extract = "";
+int counter = 0;
+boolean match = true;
+
+print("Please enter a short string: ");
+str = System.console().readLine();
+print("Please enter a longer text: ");
+text = System.console().readLine();
+
+for (int i=0;i<=(text.length()-str.length());i++) {
+	extract = text.substring(i,i+str.length());
+	match = true;
+	for (int j=0;j<=str.length()-1;j++) {
+		if(str.charAt(j) != extract.charAt(j))
+			match=false;
+	}
+	if (match)
+		counter++;
+}
+println("Found " + counter + " times the short string in this text");

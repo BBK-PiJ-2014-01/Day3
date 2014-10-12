@@ -1,0 +1,40 @@
+String newStr = "";
+String newFraction = "";
+
+int number = 0;
+int fraction = 0;
+
+boolean carry = false;
+boolean dotFound = false;
+
+println("Please enter a number with commas and decimal dots: ");
+String str = System.console().readLine();
+
+for (int i=0;i<=str.length()-1;i++) {
+	if (!Character.isLetter(str.charAt(i)))
+		if (str.charAt(i) == '.')
+			dotFound = true;
+		else
+			if ((str.charAt(i) != ',') && (dotFound == false))
+				newStr = newStr + str.charAt(i);
+			else
+				if ((str.charAt(i) != ',') && (dotFound == true))
+					newFraction = newFraction + str.charAt(i);
+}
+
+number = Integer.parseInt(newStr);
+if (dotFound)
+	fraction = Integer.parseInt(newFraction);
+else {
+	newFraction = " ";
+	fraction = 0;
+}
+
+if (number % 2 != 0)
+	fraction = fraction + (int) (Math.pow(10,newFraction.length()));
+
+if (fraction % 2 == 0)
+	println("The number divided by two is: " + (number/2) + "." + (fraction/2));
+else
+	println("The number divided by two is: " + (number/2) + "." + (fraction/2) + "5");
+
