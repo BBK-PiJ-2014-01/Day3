@@ -1,0 +1,71 @@
+Point p1 = new Point();
+Point p2 = new Point();
+Point p3 = new Point();
+Point p4 = new Point();
+Point p5 = new Point();
+p1.x = 0;
+p1.y = 0;
+p2.x = 0;
+p2.y = 0;
+p3.x = 0;
+p3.y = 0;
+p4.x = 0;
+p4.y = 0;
+p5.x = 0;
+p5.y = 0;
+Rectangle rectangle1 = new Rectangle();
+Rectangle rectangle2 = new Rectangle();
+rectangle1.corner1 = p1;
+rectangle1.corner2 = p2;
+rectangle2.corner1 = p3;
+rectangle2.corner2 = p4;
+boolean inside1 = false;
+boolean inside2 = false;
+
+print("Please enter the coordinate x for Point 1: ");
+rectangle1.corner1.x = readDouble();
+print("Please enter the coordinate y for Point 1: ");
+rectangle1.corner1.y = readDouble();
+print("Please enter the coordinate x for Point 2: ");
+rectangle1.corner2.x = readDouble();
+print("Please enter the coordinate y for Point 2: ");
+rectangle1.corner2.y = readDouble();
+print("Please enter the coordinate x for Point 3: ");
+rectangle2.corner1.x = readDouble();
+print("Please enter the coordinate y for Point 3: ");
+rectangle2.corner1.y = readDouble();
+print("Please enter the coordinate x for Point 4: ");
+rectangle2.corner2.x = readDouble();
+print("Please enter the coordinate y for Point 4: ");
+rectangle2.corner2.y = readDouble();
+
+print("Please enter the coordinate x for Point 5: ");
+p5.x = readDouble();
+print("Please enter the coordinate y for Point 5: ");
+p5.y = readDouble();
+
+if ((((p5.x <= rectangle1.corner1.x) && (p5.x >= rectangle1.corner2.x)) || ((p5.x >= rectangle1.corner1.x) && (p5.x <= rectangle1.corner2.x))) &&
+	(((p5.y <= rectangle1.corner1.y) && (p5.y >= rectangle1.corner2.y)) || ((p5.y >= rectangle1.corner1.y) && (p5.y <= rectangle1.corner2.y))))
+	inside1 = true;
+if ((((p5.x <= rectangle2.corner1.x) && (p5.x >= rectangle2.corner2.x)) || ((p5.x >= rectangle2.corner1.x) && (p5.x <= rectangle2.corner2.x))) &&
+	(((p5.y <= rectangle2.corner1.y) && (p5.y >= rectangle2.corner2.y)) || ((p5.y >= rectangle2.corner1.y) && (p5.y <= rectangle2.corner2.y))))
+	inside2 = true;
+
+if ((inside1)&&(inside2))
+	println("Point inside both rectangles!");
+else
+	if ((inside1)||(inside2))
+		println("Point inside one of the two rectangles!");
+	else
+		println("Point out of both rectangles!");
+
+
+class Point {
+	double x;
+	double y;
+}
+
+class Rectangle {
+	Point corner1;
+	Point corner2;
+}	
