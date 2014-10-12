@@ -1,0 +1,43 @@
+// Inside or outside
+
+Point p1 = new Point();
+Point p2 = new Point();
+Point p3 = new Point();
+p1.x = 0;
+p1.y = 0;
+p2.x = 0;
+p2.y = 0;
+p3.x = 0;
+p3.y = 0;
+Rectangle rectangle = new Rectangle();
+rectangle.corner1 = p1;
+rectangle.corner2 = p2;
+
+println("Please enter the coordinate x for Point 1: ");
+rectangle.corner1.x = readDouble();
+println("Please enter the coordinate y for Point 1: ");
+rectangle.corner1.y = readDouble();
+println("Please enter the coordinate x for Point 2: ");
+rectangle.corner2.x = readDouble();
+println("Please enter the coordinate y for Point 2: ");
+rectangle.corner2.y = readDouble();
+println("Please enter the coordinate x for Point 3: ");
+p3.x = readDouble();
+println("Please enter the coordinate y for Point 3: ");
+p3.y = readDouble();
+
+if ((((p3.x <= rectangle.corner1.x) && (p3.x >= rectangle.corner2.x)) || ((p3.x >= rectangle.corner1.x) && (p3.x <= rectangle.corner2.x))) &&
+	(((p3.y <= rectangle.corner1.y) && (p3.y >= rectangle.corner2.y)) || ((p3.y >= rectangle.corner1.y) && (p3.y <= rectangle.corner2.y))))
+	println("Inside!");
+else
+	println("Outside!");
+
+class Point {
+	double x;
+	double y;
+}
+
+class Rectangle {
+	Point corner1;
+	Point corner2;
+}	
