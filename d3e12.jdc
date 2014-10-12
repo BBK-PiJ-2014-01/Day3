@@ -34,17 +34,27 @@ distanceAC = Math.sqrt(Math.pow(a.x-c.x,2)+Math.pow(a.y-c.y,2));
 
 println(distanceAB + " " + distanceBC + " " + distanceAC);
 
-if (distanceAB < distanceBC) {
-	if (distanceAC < distanceAB)
-		println("Points A & C are closest with a distance of " + distanceAC);
-	else
-		println("Points A & B are closest with a distance of " + distanceAB);
-} else {
-	if (distanceAC < distanceBC)
-		println("Points A & C are closest with a distance of " + distanceAC);
-	else
-		println("Points B & C are closest with a distance of " + distanceBC);
-}		
+if ((distanceAB <= distanceBC) && (distanceAB <= distanceAC)) {
+	println("Points A & B are closest with a distance of " + distanceAB);	
+	if (Math.abs(distanceBC - distanceAB) < 10E-06)
+		println("Points B & C are also closest with the same distance of " + distanceBC);
+	if (Math.abs(distanceAC - distanceAB) < 10E-06)
+		println("Points A & C are also closest with the same distance of " + distanceAC);
+} else
+if ((distanceAC <= distanceBC) && (distanceAC <= distanceAB)) {
+	println("Points A & C are closest with a distance of " + distanceAC);	
+	if (Math.abs(distanceBC - distanceAC) < 10E-06)
+		println("Points B & C are also closest with the same distance of " + distanceBC);
+	if (Math.abs(distanceAB - distanceAC) < 10E-06)
+		println("Points A & B are also closest with the same distance of " + distanceAB);
+} else
+if ((distanceBC <= distanceAC) && (distanceBC <= distanceAB)) {
+	println("Points B & C are closest with a distance of " + distanceBC);	
+	if (Math.abs(distanceAC - distanceBC) < 10E-06)
+		println("Points A & C are also closest with the same distance of " + distanceAC);
+	if (Math.abs(distanceAB - distanceBC) < 10E-06)
+		println("Points A & B are also closest with the same distance of " + distanceAB);
+}
 
 class Point {
 	double x;
