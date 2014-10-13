@@ -1,8 +1,12 @@
+//MAIL SERVER
+Covers scope of exercise, excluding the QUIT command at any time
+
 boolean finished = false;
 String str = "";
 String command = "";
 String emailFrom = "";
 String emailTo = "";
+String emailBody = "";
 String commandMF = "MAIL FROM: ";
 String commandRF = "RCPT FROM: ";
 String commandDT = "DATA";
@@ -89,7 +93,16 @@ while(!finished) {
 			i++;
 		} while ((i<str.length())&&(error==false));
 	} while(error);
-	
+	do {
+		str = System.console().readLine();
+		emailBody = emailBody + str + "\n";
+	} while ((str.length()>1)&&(str.charAt(0)!='.'));
+	println("Sending email...");
+	println("from: " + emailFrom);
+	println("to: " + emailTo);
+	println(emailBody);
+	println("...done!");
 	finished=true;
+	
 
 }
